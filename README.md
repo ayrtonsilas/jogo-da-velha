@@ -35,7 +35,11 @@ Primeiramente se define a matriz que será usada para armazenar as jogadas com a
 
 Inicializando validador de posições
 validador de posições, para ver se usuário pode jogar naquela posição
+
+```cpp
+... main
     int validadorPosicao = 1;
+```
 
 Definindo um numero pra cada jogador
 Define um numero para cada jogador, e diz de qual vez é o jogador.
