@@ -9,7 +9,7 @@ Ao iniciar o jogo, use as teclas do teclado de 1 a 9 para selecionar as posiçõ
 [Google forms](https://docs.google.com/forms/d/1yqii0mhUsLNflf9Oy4swfCSb3FWstC5kPNRm-SPcjMw/edit?usp=sharing)
 
 ##### Link para executar o jogo
-https://rodrigorgs.github.io/inge9/playground.html
+[Executar](https://rodrigorgs.github.io/inge9/playground.html)
 
 ##### Conhecimento prévio necessário: 
 Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays, matrizes.
