@@ -193,8 +193,8 @@ int validarDiagonais(int jogadas[3][3]) {
 //função faz a verificação se a posição escolhida pelo usuário está disponível e se não puder ser escolhida a posição ele retorna uma mensagem e pede para o usuário jogar de novo
 int validarPosicao(int posicao) {
     if (posicao != 0) {
-        drawText("Essa posição já foi escolhida, aperte qualquer tecla para continuar e jogue de novo", 8, 30, 22, "white");
-        readKey();
+        drawText("Posição já escolhida, aperte uma tecla e jogue novamente", 8, 30, 22, "white");
+      	readKey();
         drawText(lastKey(), 8, 30, 22, "white");
         return 0;
     } else {
