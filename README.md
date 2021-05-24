@@ -21,7 +21,7 @@ ao final deste tutorial, o estudante deve ser capaz de compreender o conceito de
 Neste tutorial você vai aprender a desenvolver um clone do jogo da velha, no qual o objetivo é formar sequências de mesmo objeto, em linhas, colunas ou diagonais.
 
 
-Definindo a matriz das jogadas e nomes para as imagens
+##### Definindo a matriz das jogadas e nomes para as imagens
 Primeiramente se define a matriz que será usada para armazenar as jogadas com a função Jogadas. Logo em seguida criamos um nome para as imagens X e Zero com as funções imagemX e imagemO e se define a seleção da jogada através da função imagemAtual.
 ```cpp
     int main() {
@@ -58,7 +58,7 @@ Inicializa a matriz que armazena as jogadas com zero
 ```
 
 
-Carregando as imagens
+##### Carregando as imagens
 Definimos imagens que vamos usar no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as funções imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - usando a função drawImage.
 ```cpp
 
@@ -82,7 +82,7 @@ Foto do Zero
 ![tabuleiro](https://i.ibb.co/vd4d0tK/zero.jpg)
 
 
-Iniciando as rodadas do jogo
+##### Iniciando as rodadas do jogo
 Inicialmente se ler um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown, inserimos a jogada na matriz de jogadas.Para simbolizar o jogador 1, inserimos na matriz o numero 1 e para simbolizar o jogador 2, inserimos na matriz o numero 2. Dessa forma o retorno das funções de validação ja vão ser o jogador vencedor e imprimimos o X ou 0 na tabela de acordo com o numero.
 ```cpp
 ...main
@@ -157,7 +157,7 @@ while (playGame) {
 
 ```
 
-Verifica jogador
+##### Verifica jogador
 verifica se o jogador vencedor é o jogador 1, se for ele imprimi o jogador vencedor e encerra o programa, a mesma coisa para o jogador 2
  ```cpp     
 	  if (vencedorLC == 1 || vencedorDiagonal == 1) {
@@ -171,7 +171,7 @@ verifica se o jogador vencedor é o jogador 1, se for ele imprimi o jogador venc
 	}
 ```
 
-Alterna imagens
+##### Alterna imagens
 Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Tambem alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
 
 ```cpp
@@ -191,7 +191,7 @@ Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente
 ```
 
 	
-Validar um ganhador pelas linhas ou colunas
+##### Validar um ganhador pelas linhas ou colunas
 A função validaLinhasColunas valida se existe um ganhador tanto pelas linhas e/ou pelas colunas. Primeiro verifica se a posição atual da matriz esta preenchida. Se estiver, compara com as demais posições da mesma linha se a linha for toda igual retornamos o vencedor. O mesmo se da para as colunas, verifica se a posição atual da matriz esta preenchida, se estiver, compara com as demais posições da mesma coluna, se a linha for toda igual retornamos o vencedor.
 ```cpp
 int validaLinhasColunas(int jogadas[3][3]) {
@@ -213,7 +213,7 @@ int validaLinhasColunas(int jogadas[3][3]) {
 }
 ```
 
-Verificando qual jogador campeão (1 ou 2)
+##### Verificando qual jogador campeão (1 ou 2)
 Através da primeira interação (if) é possivel verificar se o jogador vencedor é o jogador 1,se for, ele imprimi o jogador vencedor e encerra o programa. Verifica o mesmo para o jogador 2.
 
 ```cpp
@@ -231,7 +231,7 @@ Através da primeira interação (if) é possivel verificar se o jogador vencedo
     }
  ```       
         
-Realizando mudança de imagem entre jogadores
+##### Realizando mudança de imagem entre jogadores
 Nessa interação é possível alternar entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores, iniciando com o jogador 1.
 ```cpp
     ...main
@@ -248,7 +248,7 @@ Nessa interação é possível alternar entre as imagens para mudar a cada rodad
 ```
 
 
-Verifica posição disponível
+##### Verifica posição disponível
 Através da função validarPosicao, realiza a verificação da posição escolhida pelo usuário, se está disponível. Caso a posição não puder ser escolhida, ele retorna uma mensagem através do comando drawText e pede para o usuário jogar de novo.
 
 ```cpp
