@@ -83,7 +83,7 @@ int main() {
                 drawImage(imagemAtual, 210, 140);
             }
         } else if (isKeyDown("5")) {
-            validadorPosicao = validarPosicao(jogadas[1][0]);
+            validadorPosicao = validarPosicao(jogadas[1][1]);
             if (validadorPosicao == 1) {
                 jogadas[1][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 140);
