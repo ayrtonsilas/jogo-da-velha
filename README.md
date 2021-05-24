@@ -8,6 +8,9 @@ Ao iniciar o jogo, use as teclas do teclado de 1 a 9 para selecionar as posiçõ
 ##### Formulário de avaliação do desenvolvimento e do jogo:
 [Google forms](https://docs.google.com/forms/d/1yqii0mhUsLNflf9Oy4swfCSb3FWstC5kPNRm-SPcjMw/edit?usp=sharing)
 
+##### Link para executar o jogo
+https://rodrigorgs.github.io/inge9/playground.html
+
 ##### Conhecimento prévio necessário: 
 Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays, matrizes.
 
@@ -30,6 +33,31 @@ Primeiramente se define a matriz que será usada para armazenar as jogadas com a
     }
 ```
 
+Inicializando validador de posições
+validador de posições, para ver se usuário pode jogar naquela posição
+    int validadorPosicao = 1;
+
+Definindo um numero pra cada jogador
+Define um numero para cada jogador, e diz de qual vez é o jogador.
+
+```cpp
+... main
+    int jogador1 = 1;
+    int jogador2 = 2;
+    int jogadorAtual = 1;
+```
+
+Inicializa a matriz que armazena as jogadas com zero
+```cpp
+... main
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            jogadas[i][j] = 0;
+        }
+    }
+```
+
+
 Carregando as imagens
 Definimos imagens que vamos usar no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as funções imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - usando a função drawImage.
 ```cpp
@@ -45,14 +73,14 @@ Definimos imagens que vamos usar no jogo. Para isso vamos usar a função loadIm
     
 
 ```
-FOTO DO TABULEIRO
-
+Tabuleiro
 ![tabuleiro](https://i.ibb.co/nwRf4mx/download.png)
 
 Foto do X
 ![tabuleiro](https://i.ibb.co/BVf32tS/x.jpg)
 Foto do Zero
 ![tabuleiro](https://i.ibb.co/vd4d0tK/zero.jpg)
+
 
 Iniciando as rodadas do jogo
 Inicialmente se ler um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown, inserimos a jogada na matriz de jogadas.Para simbolizar o jogador 1, inserimos na matriz o numero 1 e para simbolizar o jogador 2, inserimos na matriz o numero 2. Dessa forma o retorno das funções de validação ja vão ser o jogador vencedor e imprimimos o X ou 0 na tabela de acordo com o numero.
@@ -119,6 +147,47 @@ while (playGame) {
     }
 }
 ...
+```
+
+```cpp
+  
+        int vencedorLC = validaLinhasColunas(jogadas);
+        //implementar função validarDiagonais pelos alunos
+        int vencedorDiagonal = validarDiagonais(jogadas);
+
+```
+
+Verifica jogador
+verifica se o jogador vencedor é o jogador 1, se for ele imprimi o jogador vencedor e encerra o programa, a mesma coisa para o jogador 2
+ ```cpp     
+	  if (vencedorLC == 1 || vencedorDiagonal == 1) {
+            drawText("Jogador 1 Venceu", 8, 30, 22, "white");
+            playGame = false;
+        } else if (vencedorLC == 2 || vencedorDiagonal == 2) {
+            drawText("Jogador 2 Venceu", 8, 30, 22, "white");
+            playGame = false;
+        }
+	return 0;
+	}
+```
+
+Alterna imagens
+Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Tambem alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
+
+```cpp
+        if (validadorPosicao == 1) {
+            if (imagemAtual == imagemO) {
+                imagemAtual = imagemX;
+                jogadorAtual = jogador1;
+            } else {
+                imagemAtual = imagemO;
+                jogadorAtual = jogador2;
+            }
+        }
+
+    return 0;
+}
+
 ```
 
 	
@@ -195,6 +264,8 @@ int validarPosicao(int posicao) {
 
 }
 ```
+
+
 
 Para o exercício de implementação, baseado na validação do ganhador pelas linhas ou colunas, solicitamos que seja feita a função validarDiagonais validando diagonal principal e secundaria para verificar se possui o vencedor na rodada, mostrando qual jogador ganhou (1 ou 2).
 
