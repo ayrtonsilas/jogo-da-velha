@@ -5,6 +5,9 @@ Ayrton, Danilo, Juliana, Liliane
 ##### Como jogar:
 Ao iniciar o jogo, use as teclas do teclado de 1 a 9 para selecionar as posições escolhidas.
 
+##### Formulário de avaliação do desenvolvimento e do jogo:
+[Google forms](https://docs.google.com/forms/d/1yqii0mhUsLNflf9Oy4swfCSb3FWstC5kPNRm-SPcjMw/edit?usp=sharing)
+
 ##### Conhecimento prévio necessário: 
 Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays, matrizes.
 
