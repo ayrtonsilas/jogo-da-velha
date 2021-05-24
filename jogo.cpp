@@ -196,6 +196,7 @@ int validarPosicao(int posicao) {
         drawText("Posição já escolhida, aperte uma tecla e jogue novamente", 8, 30, 22, "white");
       	readKey();
         drawText(lastKey(), 8, 30, 22, "white");
+      	fillRect(8, 0, 700, 40, "black");
         return 0;
     } else {
         return 1;
