@@ -169,7 +169,7 @@ Verifica se o jogador 1 é o jogador vencedor, se for ele imprime o jogador venc
   
 
 ##### Alterna imagens
-Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
+Esse bloco alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
 
 ```cpp
 ...main
