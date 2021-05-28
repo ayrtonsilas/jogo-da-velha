@@ -1,6 +1,6 @@
 # Tutorial: jogo da velha
 ##### Autores: 
-Ayrton, Danilo, Juliana, Liliane
+Ayrton Silas, Danilo Brito, Juliana Nascimento, Liliane Fiúza.
 
 ##### Como jogar:
 Ao iniciar o jogo, use as teclas do teclado de 1 a 9 para selecionar as posições escolhidas.
@@ -8,52 +8,46 @@ Ao iniciar o jogo, use as teclas do teclado de 1 a 9 para selecionar as posiçõ
 ##### Formulário de avaliação do desenvolvimento e do jogo:
 [Google forms](https://docs.google.com/forms/d/1yqii0mhUsLNflf9Oy4swfCSb3FWstC5kPNRm-SPcjMw/edit?usp=sharing)
 
-##### Link para executar o jogo
-[Executar](https://rodrigorgs.github.io/inge9/playground.html)
-
 ##### Conhecimento prévio necessário: 
-Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays, matrizes.
+Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays, matrizes e funções.
 
 ##### Objetivo de aprendizagem: 
-ao final deste tutorial, o estudante deve ser capaz de compreender o conceito de matriz de acordo com o que o problema pede.
+Ao final deste tutorial, o estudante deve ser capaz de compreender o conceito de matriz de acordo com o que o problema pede.
 
 ##### Iniciando
 Neste tutorial você vai aprender a desenvolver um clone do jogo da velha, no qual o objetivo é formar sequências de mesmo objeto, em linhas, colunas ou diagonais.
 
+FOTO DO JOGO
+https://i.ibb.co/X2LGyKF/jogo-da-velha.png
 
-##### Definindo a matriz das jogadas e nomes para as imagens
-Primeiramente se define a matriz que será usada para armazenar as jogadas com a função Jogadas. Logo em seguida criamos um nome para as imagens X e Zero com as funções imagemX e imagemO e se define a seleção da jogada através da função imagemAtual.
+
+#####  Definindo a matriz das jogadas e nomes para as imagens
+Primeiramente se define a matriz que será usada para armazenar cada jogada com uma função denominada Jogadas. Logo em seguida, criamos um nome para as imagens X e Zero com as funções imagemX e imagemO, e definimos a seleção da jogada através da função imagemAtual.
 ```cpp
     int main() {
         int jogadas[3][3];
         char imagemX[12] = "imagem_X";
         char imagemO[12] = "imagem_Zero";
         char imagemAtual[12] = imagemX;
-        return 0
+        return 0;
     }
 ```
 
-Inicializando validador de posições
-validador de posições, para ver se usuário pode jogar naquela posição
-
+##### Inicializando validador de posições
+Validador de posições, utilizado para verificar se o usuário pode jogar na posição que foi solicitada.
 ```cpp
-... main
     int validadorPosicao = 1;
 ```
 
-Definindo um numero pra cada jogador
-Define um numero para cada jogador, e diz de qual vez é o jogador.
+##### Definindo um número pra cada jogador
+Define um número para cada jogador e informa de qual jogador é a vez e inicializa a matriz que armazena as jogadas com zero.
 
 ```cpp
 ... main
     int jogador1 = 1;
     int jogador2 = 2;
     int jogadorAtual = 1;
-```
 
-Inicializa a matriz que armazena as jogadas com zero
-```cpp
-... main
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             jogadas[i][j] = 0;
@@ -63,7 +57,7 @@ Inicializa a matriz que armazena as jogadas com zero
 
 
 ##### Carregando as imagens
-Definimos imagens que vamos usar no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as funções imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - usando a função drawImage.
+Definimos imagens que utilizaremos no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as funções imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - utilizando a função drawImage.
 ```cpp
 
     int main() {
@@ -74,7 +68,6 @@ Definimos imagens que vamos usar no jogo. Para isso vamos usar a função loadIm
         drawImage("tabuleiro", 200, 50);
         return 0;
     }
-    
 
 ```
 Tabuleiro
@@ -87,7 +80,7 @@ Foto do Zero
 
 
 ##### Iniciando as rodadas do jogo
-Inicialmente se ler um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown, inserimos a jogada na matriz de jogadas.Para simbolizar o jogador 1, inserimos na matriz o numero 1 e para simbolizar o jogador 2, inserimos na matriz o numero 2. Dessa forma o retorno das funções de validação ja vão ser o jogador vencedor e imprimimos o X ou 0 na tabela de acordo com o numero.
+Inicialmente leremos um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown e inserimos a jogada na matriz de jogadas. Para simbolizar o jogador 1, inserimos na matriz o número 1 e para simbolizar o jogador 2, inserimos na matriz o número 2. Dessa forma o retorno das funções de validação já vai ser o jogador vencedor e imprimimos o X ou 0 na tabela de acordo com o número.
 ```cpp
 ...main
 bool playGame = true;
@@ -149,7 +142,6 @@ while (playGame) {
             drawImage(imagemAtual, 360, 65);
         }
     }
-}
 ...
 ```
 
@@ -162,7 +154,7 @@ while (playGame) {
 ```
 
 ##### Verifica jogador
-verifica se o jogador vencedor é o jogador 1, se for ele imprimi o jogador vencedor e encerra o programa, a mesma coisa para o jogador 2
+Verifica se o jogador 1 é o jogador vencedor, se for ele imprime o jogador vencedor e encerra o programa. A mesma verificação ocorre com o jogador 2.
  ```cpp     
 	  if (vencedorLC == 1 || vencedorDiagonal == 1) {
             drawText("Jogador 1 Venceu", 8, 30, 22, "white");
@@ -174,9 +166,10 @@ verifica se o jogador vencedor é o jogador 1, se for ele imprimi o jogador venc
 	return 0;
 	}
 ```
+  
 
 ##### Alterna imagens
-Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Tambem alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
+Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
 
 ```cpp
         if (validadorPosicao == 1) {
@@ -196,7 +189,8 @@ Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente
 
 	
 ##### Validar um ganhador pelas linhas ou colunas
-A função validaLinhasColunas valida se existe um ganhador tanto pelas linhas e/ou pelas colunas. Primeiro verifica se a posição atual da matriz esta preenchida. Se estiver, compara com as demais posições da mesma linha se a linha for toda igual retornamos o vencedor. O mesmo se da para as colunas, verifica se a posição atual da matriz esta preenchida, se estiver, compara com as demais posições da mesma coluna, se a linha for toda igual retornamos o vencedor.
+Com o validaLinhasColunas valida-se a existência de um 
+ganhador tanto pelas linhas e/ou pelas colunas. Primeiro verifica se a posição atual da matriz está preenchida. Se caso estiver, compara com as demais posições da mesma linha e se ela for toda igual, retornamos o vencedor. O mesmo se da para as colunas, verifica se a posição atual da matriz está preenchida, se estiver, compara com as demais posições da mesma coluna, se a linha for toda igual retornamos o vencedor.
 ```cpp
 int validaLinhasColunas(int jogadas[3][3]) {
     for (int i = 0; i < 3; i++) {
@@ -217,50 +211,16 @@ int validaLinhasColunas(int jogadas[3][3]) {
 }
 ```
 
-##### Verificando qual jogador campeão (1 ou 2)
-Através da primeira interação (if) é possivel verificar se o jogador vencedor é o jogador 1,se for, ele imprimi o jogador vencedor e encerra o programa. Verifica o mesmo para o jogador 2.
-
-```cpp
-    ...main
-    ...while
-    int vencedorLC = validaLinhasColunas(jogadas);
-    int vencedorDiagonal = validarDiagonais(jogadas);
-
-    if (vencedorLC == 1 || vencedorDiagonal == 1) {
-        drawText("Jogador 1 Venceu", 8, 30, 22, "white");
-        playGame = false;
-    } else if (vencedorLC == 2 || vencedorDiagonal == 2) {
-        drawText("Jogador 2 Venceu", 8, 30, 22, "white");
-        playGame = false;
-    }
- ```       
-        
-##### Realizando mudança de imagem entre jogadores
-Nessa interação é possível alternar entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores, iniciando com o jogador 1.
-```cpp
-    ...main
-    ...while
-    if (validadorPosicao == 1) {
-        if (imagemAtual == imagemO) {
-            imagemAtual = imagemX;
-            jogadorAtual = jogador1;
-        } else {
-            imagemAtual = imagemO;
-            jogadorAtual = jogador2;
-        }
-    }
-```
-
 
 ##### Verifica posição disponível
-Através da função validarPosicao, realiza a verificação da posição escolhida pelo usuário, se está disponível. Caso a posição não puder ser escolhida, ele retorna uma mensagem através do comando drawText e pede para o usuário jogar de novo.
+Através de validarPosicao é verificado se a posição escolhida pelo usuário está disponível. Caso a posição não puder ser escolhida, ele retorna uma mensagem através do comando drawText e pede para o usuário jogar novamente.
 
 ```cpp
 int validarPosicao(int posicao) {
     if (posicao != 0) {
-        drawText("Posição já escolhida, aperte uma tecla e jogue novamente", 8, 30, 22, "white");
-      	readKey();
-      	fillRect(8, 0, 700, 40, "black");
+        drawText("Essa posição já foi escolhida, aperte qualquer tecla para continuar e jogue de novo", 8, 30, 22, "white");
+        readKey();
+        drawText(lastKey(), 8, 30, 22, "white");
         return 0;
     } else {
         return 1;
@@ -271,7 +231,7 @@ int validarPosicao(int posicao) {
 
 
 
-Para o exercício de implementação, baseado na validação do ganhador pelas linhas ou colunas, solicitamos que seja feita a função validarDiagonais validando diagonal principal e secundaria para verificar se possui o vencedor na rodada, mostrando qual jogador ganhou (1 ou 2).
+Para o exercício de implementação, baseado na validação do ganhador pelas linhas ou colunas, solicitamos que seja feita a função validarDiagonais para executar a validação da diagonal principal e da diagonal secundária, verificando se possui o vencedor na rodada e mostrando qual jogador ganhou (1 ou 2).
 
 ```cpp
 ...
