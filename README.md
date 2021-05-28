@@ -36,7 +36,7 @@ Primeiramente se define a matriz que será usada para armazenar cada jogada. Log
 Validador de posições que já foram usadas, utilizado para verificar se o usuário pode jogar na posição que foi solicitada.
 ```cpp
 ...main
-    int validadorPosicao = 1;
+    int verificaPosicaoJogada = 1;
 ```
 
 ##### Definindo um número pra cada jogador
@@ -85,56 +85,56 @@ while (playGame) {
 
     readKey();
     if (isKeyDown("1")) {
-            validadorPosicao = validarPosicao(jogadas[2][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 210);
             }
         } else if (isKeyDown("2")) {
-            validadorPosicao = validarPosicao(jogadas[2][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 210);
             }
         } else if (isKeyDown("3")) {
-            validadorPosicao = validarPosicao(jogadas[2][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 210);
             }
         } else if (isKeyDown("4")) {
-            validadorPosicao = validarPosicao(jogadas[1][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 140);
             }
         } else if (isKeyDown("5")) {
-            validadorPosicao = validarPosicao(jogadas[1][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 140);
             }
         } else if (isKeyDown("6")) {
-            validadorPosicao = validarPosicao(jogadas[1][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 140);
             }
         } else if (isKeyDown("7")) {
-            validadorPosicao = validarPosicao(jogadas[0][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 65);
             }
         } else if (isKeyDown("8")) {
-            validadorPosicao = validarPosicao(jogadas[0][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 65);
             }
         } else if (isKeyDown("9")) {
-            validadorPosicao = validarPosicao(jogadas[0][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 65);
             }
