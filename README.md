@@ -18,29 +18,29 @@ Ao final deste tutorial, o estudante deve ser capaz de compreender o conceito de
 Neste tutorial você vai aprender a desenvolver um clone do jogo da velha, no qual o objetivo é formar sequências de mesmo objeto, em linhas, colunas ou diagonais.
 
 FOTO DO JOGO
-https://i.ibb.co/X2LGyKF/jogo-da-velha.png
+![tabuleiro](https://i.ibb.co/X2LGyKF/jogo-da-velha.png)
 
 
 #####  Definindo a matriz das jogadas e nomes para as imagens
-Primeiramente se define a matriz que será usada para armazenar cada jogada com uma função denominada Jogadas. Logo em seguida, criamos um nome para as imagens X e Zero com as funções imagemX e imagemO, e definimos a seleção da jogada através da função imagemAtual.
+Primeiramente se define a matriz que será usada para armazenar cada jogada. Logo em seguida, criamos um nome para as imagens X e Zero com as variáveis imagemX e imagemO, e definimos a seleção da jogada através da variável imagemAtual.
 ```cpp
     int main() {
         int jogadas[3][3];
         char imagemX[12] = "imagem_X";
         char imagemO[12] = "imagem_Zero";
         char imagemAtual[12] = imagemX;
-        return 0;
     }
 ```
 
 ##### Inicializando validador de posições
-Validador de posições, utilizado para verificar se o usuário pode jogar na posição que foi solicitada.
+Validador de posições que já foram usadas, utilizado para verificar se o usuário pode jogar na posição que foi solicitada.
 ```cpp
+...main
     int validadorPosicao = 1;
 ```
 
 ##### Definindo um número pra cada jogador
-Define um número para cada jogador e informa de qual jogador é a vez e inicializa a matriz que armazena as jogadas com zero.
+Define um número para cada jogador, informa de qual jogador é a vez e inicializa a matriz que armazena as jogadas com zero.
 
 ```cpp
 ... main
@@ -57,18 +57,13 @@ Define um número para cada jogador e informa de qual jogador é a vez e inicial
 
 
 ##### Carregando as imagens
-Definimos imagens que utilizaremos no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as funções imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - utilizando a função drawImage.
+Definimos imagens que utilizaremos no jogo. Para isso vamos usar a função loadImage. A seguir vamos criar as imagens X e Zero com as variáveis imagemX e imagemO e montar o tabuleiro na posição ( 200,50) - 200 pixels horizontal e 50 pixels vertical - utilizando a função drawImage.
 ```cpp
-
-    int main() {
-        ...
+... main
         loadImage("tabuleiro", "https://i.ibb.co/nwRf4mx/download.png");
         loadImage(imagemX, "https://i.ibb.co/BVf32tS/x.jpg");
         loadImage(imagemO, "https://i.ibb.co/vd4d0tK/zero.jpg");
         drawImage("tabuleiro", 200, 50);
-        return 0;
-    }
-
 ```
 Tabuleiro
 ![tabuleiro](https://i.ibb.co/nwRf4mx/download.png)
@@ -80,7 +75,9 @@ Foto do Zero
 
 
 ##### Iniciando as rodadas do jogo
-Inicialmente leremos um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown e inserimos a jogada na matriz de jogadas. Para simbolizar o jogador 1, inserimos na matriz o número 1 e para simbolizar o jogador 2, inserimos na matriz o número 2. Dessa forma o retorno das funções de validação já vai ser o jogador vencedor e imprimimos o X ou 0 na tabela de acordo com o número.
+Criamos uma variável playGame para controlar o início e fim do jogo.
+Inicialmente leremos um valor do teclado através da função readKey, em seguida verificamos o valor digitado através de isKeyDown e inserimos a jogada na matriz de jogadas. Para simbolizar o jogador 1, inserimos na matriz o número 1 e para simbolizar o jogador 2, inserimos na matriz o número 2. 
+Logo após a verificação, validamos através da função validarPosicao() se a posição já está preenchida ou não. Caso esteja, é solicitada uma nova tentativa.
 ```cpp
 ...main
 bool playGame = true;
@@ -88,65 +85,68 @@ while (playGame) {
 
     readKey();
     if (isKeyDown("1")) {
-        validadorPosicao = validarPosicao(jogadas[2][0]);
-        if (validadorPosicao == 1) {
-            jogadas[2][0] = jogadorAtual;
-            drawImage(imagemAtual, 210, 210);
+            validadorPosicao = validarPosicao(jogadas[2][0]);
+            if (validadorPosicao == 1) {
+                jogadas[2][0] = jogadorAtual;
+                drawImage(imagemAtual, 210, 210);
+            }
+        } else if (isKeyDown("2")) {
+            validadorPosicao = validarPosicao(jogadas[2][1]);
+            if (validadorPosicao == 1) {
+                jogadas[2][1] = jogadorAtual;
+                drawImage(imagemAtual, 290, 210);
+            }
+        } else if (isKeyDown("3")) {
+            validadorPosicao = validarPosicao(jogadas[2][2]);
+            if (validadorPosicao == 1) {
+                jogadas[2][2] = jogadorAtual;
+                drawImage(imagemAtual, 360, 210);
+            }
+        } else if (isKeyDown("4")) {
+            validadorPosicao = validarPosicao(jogadas[1][0]);
+            if (validadorPosicao == 1) {
+                jogadas[1][0] = jogadorAtual;
+                drawImage(imagemAtual, 210, 140);
+            }
+        } else if (isKeyDown("5")) {
+            validadorPosicao = validarPosicao(jogadas[1][1]);
+            if (validadorPosicao == 1) {
+                jogadas[1][1] = jogadorAtual;
+                drawImage(imagemAtual, 290, 140);
+            }
+        } else if (isKeyDown("6")) {
+            validadorPosicao = validarPosicao(jogadas[1][2]);
+            if (validadorPosicao == 1) {
+                jogadas[1][2] = jogadorAtual;
+                drawImage(imagemAtual, 360, 140);
+            }
+        } else if (isKeyDown("7")) {
+            validadorPosicao = validarPosicao(jogadas[0][0]);
+            if (validadorPosicao == 1) {
+                jogadas[0][0] = jogadorAtual;
+                drawImage(imagemAtual, 210, 65);
+            }
+        } else if (isKeyDown("8")) {
+            validadorPosicao = validarPosicao(jogadas[0][1]);
+            if (validadorPosicao == 1) {
+                jogadas[0][1] = jogadorAtual;
+                drawImage(imagemAtual, 290, 65);
+            }
+        } else if (isKeyDown("9")) {
+            validadorPosicao = validarPosicao(jogadas[0][2]);
+            if (validadorPosicao == 1) {
+                jogadas[0][2] = jogadorAtual;
+                drawImage(imagemAtual, 360, 65);
+            }
         }
-    } else if (isKeyDown("2")) {
-        validadorPosicao = validarPosicao(jogadas[2][1]);
-        if (validadorPosicao == 1) {
-            jogadas[2][1] = jogadorAtual;
-            drawImage(imagemAtual, 290, 210);
-        }
-    } else if (isKeyDown("3")) {
-        validadorPosicao = validarPosicao(jogadas[2][2]);
-        if (validadorPosicao == 1) {
-            jogadas[2][2] = jogadorAtual;
-            drawImage(imagemAtual, 360, 210);
-        }
-    } else if (isKeyDown("4")) {
-        validadorPosicao = validarPosicao(jogadas[1][0]);
-        if (validadorPosicao == 1) {
-            jogadas[1][0] = jogadorAtual;
-            drawImage(imagemAtual, 210, 140);
-        }
-    } else if (isKeyDown("5")) {
-        validadorPosicao = validarPosicao(jogadas[1][0]);
-        if (validadorPosicao == 1) {
-            jogadas[1][1] = jogadorAtual;
-            drawImage(imagemAtual, 290, 140);
-        }
-    } else if (isKeyDown("6")) {
-        validadorPosicao = validarPosicao(jogadas[1][2]);
-        if (validadorPosicao == 1) {
-            jogadas[1][2] = jogadorAtual;
-            drawImage(imagemAtual, 360, 140);
-        }
-    } else if (isKeyDown("7")) {
-        validadorPosicao = validarPosicao(jogadas[0][0]);
-        if (validadorPosicao == 1) {
-            jogadas[0][0] = jogadorAtual;
-            drawImage(imagemAtual, 210, 65);
-        }
-    } else if (isKeyDown("8")) {
-        validadorPosicao = validarPosicao(jogadas[0][1]);
-        if (validadorPosicao == 1) {
-            jogadas[0][1] = jogadorAtual;
-            drawImage(imagemAtual, 290, 65);
-        }
-    } else if (isKeyDown("9")) {
-        validadorPosicao = validarPosicao(jogadas[0][2]);
-        if (validadorPosicao == 1) {
-            jogadas[0][2] = jogadorAtual;
-            drawImage(imagemAtual, 360, 65);
-        }
-    }
 ...
 ```
 
+Aqui chamamos as funções de validação de linhas, colunas e diagonais e armazenamos o retorno delas em uma variável.
+
 ```cpp
-  
+ ...main
+ ...while
         int vencedorLC = validaLinhasColunas(jogadas);
         //implementar função validarDiagonais pelos alunos
         int vencedorDiagonal = validarDiagonais(jogadas);
@@ -155,15 +155,15 @@ while (playGame) {
 
 ##### Verifica jogador
 Verifica se o jogador 1 é o jogador vencedor, se for ele imprime o jogador vencedor e encerra o programa. A mesma verificação ocorre com o jogador 2.
- ```cpp     
-	  if (vencedorLC == 1 || vencedorDiagonal == 1) {
-            drawText("Jogador 1 Venceu", 8, 30, 22, "white");
-            playGame = false;
-        } else if (vencedorLC == 2 || vencedorDiagonal == 2) {
-            drawText("Jogador 2 Venceu", 8, 30, 22, "white");
-            playGame = false;
-        }
-	return 0;
+ ```cpp  
+ ...main
+ ...while
+	if (vencedorLC == 1 || vencedorDiagonal == 1) {
+	    drawText("Jogador 1 Venceu", 8, 30, 22, "white");
+	    playGame = false;
+	} else if (vencedorLC == 2 || vencedorDiagonal == 2) {
+	    drawText("Jogador 2 Venceu", 8, 30, 22, "white");
+	    playGame = false;
 	}
 ```
   
@@ -172,21 +172,29 @@ Verifica se o jogador 1 é o jogador vencedor, se for ele imprime o jogador venc
 Essa interação alterna entre as imagens para mudar a cada rodada. Inicialmente começamos com a imagem X. Também alternamos os jogadores e inicialmente começamos com o jogador 1 validando em ambos se a posição foi preenchida.
 
 ```cpp
-        if (validadorPosicao == 1) {
-            if (imagemAtual == imagemO) {
-                imagemAtual = imagemX;
-                jogadorAtual = jogador1;
-            } else {
-                imagemAtual = imagemO;
-                jogadorAtual = jogador2;
-            }
-        }
-
-    return 0;
+...main
+...while
+if (validadorPosicao == 1) {
+    if (imagemAtual == imagemO) {
+	imagemAtual = imagemX;
+	jogadorAtual = jogador1;
+    } else {
+	imagemAtual = imagemO;
+	jogadorAtual = jogador2;
+    }
 }
 
 ```
 
+Aqui encerramos o trecho do while e colocamos o retorno da função main
+
+```cpp
+...main
+...while
+}
+
+    return 0;
+```
 	
 ##### Validar um ganhador pelas linhas ou colunas
 Com o validaLinhasColunas valida-se a existência de um 
@@ -218,18 +226,17 @@ Através de validarPosicao é verificado se a posição escolhida pelo usuário 
 ```cpp
 int validarPosicao(int posicao) {
     if (posicao != 0) {
-        drawText("Essa posição já foi escolhida, aperte qualquer tecla para continuar e jogue de novo", 8, 30, 22, "white");
-        readKey();
-        drawText(lastKey(), 8, 30, 22, "white");
+        drawText("Posição já escolhida, aperte uma tecla e jogue novamente", 8, 30, 22, "white");
+      	readKey();
+      	fillRect(8, 0, 700, 40, "black");
         return 0;
     } else {
         return 1;
     }
-
 }
 ```
 
-
+##### Exercício
 
 Para o exercício de implementação, baseado na validação do ganhador pelas linhas ou colunas, solicitamos que seja feita a função validarDiagonais para executar a validação da diagonal principal e da diagonal secundária, verificando se possui o vencedor na rodada e mostrando qual jogador ganhou (1 ou 2).
 
@@ -244,7 +251,7 @@ int validarDiagonais(int jogadas[3][3]) {
     //retornar 0 se ainda não teve vencedor
 
     //AJUDA (indices abaixo da matriz):
-    // 00   01 	02
+    // 00   	01 	02
     // 10	11	12
     // 20	21	22 
 
