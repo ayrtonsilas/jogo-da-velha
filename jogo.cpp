@@ -17,7 +17,7 @@ int main() {
     char imagemAtual[12] = imagemX;
 
     //validador de posições, para ver se usuário pode jogar naquela posição
-    int validadorPosicao = 1;
+    int verificaPosicaoJogada = 1;
 
     //define um numero para cada jogador
     int jogador1 = 1;
@@ -59,56 +59,56 @@ int main() {
         //imprimimos o X ou 0 na tabela de acordo com o numero
         //valida se a posição pode ser escolhida
         if (isKeyDown("1")) {
-            validadorPosicao = validarPosicao(jogadas[2][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 210);
             }
         } else if (isKeyDown("2")) {
-            validadorPosicao = validarPosicao(jogadas[2][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 210);
             }
         } else if (isKeyDown("3")) {
-            validadorPosicao = validarPosicao(jogadas[2][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[2][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[2][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 210);
             }
         } else if (isKeyDown("4")) {
-            validadorPosicao = validarPosicao(jogadas[1][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 140);
             }
         } else if (isKeyDown("5")) {
-            validadorPosicao = validarPosicao(jogadas[1][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 140);
             }
         } else if (isKeyDown("6")) {
-            validadorPosicao = validarPosicao(jogadas[1][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[1][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[1][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 140);
             }
         } else if (isKeyDown("7")) {
-            validadorPosicao = validarPosicao(jogadas[0][0]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][0]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][0] = jogadorAtual;
                 drawImage(imagemAtual, 210, 65);
             }
         } else if (isKeyDown("8")) {
-            validadorPosicao = validarPosicao(jogadas[0][1]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][1]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][1] = jogadorAtual;
                 drawImage(imagemAtual, 290, 65);
             }
         } else if (isKeyDown("9")) {
-            validadorPosicao = validarPosicao(jogadas[0][2]);
-            if (validadorPosicao == 1) {
+            verificaPosicaoJogada = validarPosicao(jogadas[0][2]);
+            if (verificaPosicaoJogada == 1) {
                 jogadas[0][2] = jogadorAtual;
                 drawImage(imagemAtual, 360, 65);
             }
@@ -134,7 +134,7 @@ int main() {
         //tambem alternamos os jogadores
         //inicialmente começamos o o jogador 1
         //valida se a posição foi preenchida
-        if (validadorPosicao == 1) {
+        if (verificaPosicaoJogada == 1) {
             if (imagemAtual == imagemO) {
                 imagemAtual = imagemX;
                 jogadorAtual = jogador1;
