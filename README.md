@@ -14,6 +14,9 @@ Estruturas de seleção (if/else), estruturas de repetição (for/while), arrays
 ##### Objetivo de aprendizagem: 
 Ao final deste tutorial, o estudante deve ser capaz de compreender o conceito de matriz de acordo com o que o problema pede.
 
+##### Como executar
+Para fazer a execução do jogo basta somente inserir o código-fonte no Playground da biblioteca inge9 (https://rodrigorgs.github.io/inge9/playground) e clicar em "Rodar".
+
 ##### Iniciando
 Neste tutorial você vai aprender a desenvolver um clone do jogo da velha, no qual o objetivo é formar sequências de mesmo objeto, em linhas, colunas ou diagonais.
 
@@ -22,8 +25,13 @@ FOTO DO JOGO
 
 
 #####  Definindo a matriz das jogadas e nomes para as imagens
-Primeiramente se define a matriz que será usada para armazenar cada jogada. Logo em seguida, criamos um nome para as imagens X e Zero com as variáveis imagemX e imagemO, e definimos a seleção da jogada através da variável imagemAtual.
+Primeiramente é necessário importar as bibliotecas do C++ utilizadas, importar a inge9 para processar as imagens do jogo e definir a matriz que será usada para armazenar cada jogada. Logo em seguida, criamos um nome para as imagens X e Zero com as variáveis imagemX e imagemO, e definimos a seleção da jogada através da variável imagemAtual.
 ```cpp
+#include <iostream>
+#include <cmath>
+#include <inge9>
+
+using namespace std;
     int main() {
         int jogadas[3][3];
         char imagemX[12] = "imagem_X";
